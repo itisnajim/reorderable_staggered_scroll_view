@@ -71,6 +71,39 @@ ReorderableStaggeredScrollView.list(
 )
 ```
 
+### Custom
+
+You can integrate the `ReorderableStaggeredScrollView` package with your custom list or grid widget by wrapping your custom list or grid widget with the necessary components.
+
+```dart
+DragNotification(
+  child: ListView(
+    scrollDirection: Axis.vertical,
+    children: [
+      DragContainer(
+        scrollDirection: Axis.vertical,
+        isLongPressDraggable: true,
+        buildItems: (List<Widget> children) {
+          return YourCustomListViewWidget(
+            // Your custom list or grid widget configuration
+            children: children,
+          );
+        },
+        dataList: yourList, // Your List of ReorderableStaggeredScrollViewListItem or ReorderableStaggeredScrollViewGridItem
+        items: (ReorderableStaggeredScrollViewListItem element, DraggableWidget draggableWidget) {
+          // Map each item in your dataList into a draggable widget
+          return Container(
+            key: ValueKey(element.key.toString()),
+            child: draggableWidget(element.widget),
+          );
+        }
+      ),
+    ],
+  ),
+);
+```
+Replace the comments with your actual widget configuration and data. This setup will allow you to use the ReorderableStaggeredScrollView package with your custom widget.
+
 For more detailed usage instructions and configuration options, refer to the [example](https://github.com/itisnajim/reorderable_staggered_scroll_view/tree/main/example) directory in this repository.
 
 

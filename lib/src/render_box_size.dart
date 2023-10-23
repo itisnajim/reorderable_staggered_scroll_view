@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class RenderBoxSize extends StatefulWidget {
-  const RenderBoxSize(this.child, this.onChangeSize, {Key? key}) : super(key: key);
+  const RenderBoxSize(this.child, this.onChangeSize, {Key? key})
+      : super(key: key);
 
   final Widget child;
   final void Function(Size size) onChangeSize;

@@ -18,6 +18,17 @@ class ReorderableStaggeredScrollViewListItem {
     required this.key,
     required this.widget,
   });
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    return other is ReorderableStaggeredScrollViewListItem &&
+        key == other.key &&
+        widget == other.widget;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ widget.hashCode;
 }
 
 /// Represents an item in a grid layout within a [ReorderableStaggeredScrollView].
@@ -38,6 +49,20 @@ class ReorderableStaggeredScrollViewGridItem
     required this.crossAxisCellCount,
     required super.widget,
   });
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    return other is ReorderableStaggeredScrollViewGridItem &&
+        key == other.key &&
+        mainAxisCellCount == other.mainAxisCellCount &&
+        crossAxisCellCount == other.crossAxisCellCount &&
+        widget == other.widget;
+  }
+
+  @override
+  int get hashCode =>
+      super.hashCode ^ mainAxisCellCount.hashCode ^ crossAxisCellCount.hashCode;
 }
 
 /// A scrollable list or grid with reordering and drag-and-drop support.
@@ -318,7 +343,8 @@ class _ReorderableStaggeredScrollViewState
       edgeScroll: widget.edgeScroll,
       edgeScrollSpeedMilliseconds: widget.edgeScrollSpeedMilliseconds,
       isNotDragList: widget.isNotDragList,
-      items: (element, DraggableWidget draggableWidget) {
+      items: (ReorderableStaggeredScrollViewListItem element,
+          DraggableWidget draggableWidget) {
         return widget.isList
             ? Container(
                 key: ValueKey(element.key.toString()),

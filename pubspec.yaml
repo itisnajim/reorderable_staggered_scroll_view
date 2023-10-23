@@ -1,6 +1,6 @@
 name: reorderable_staggered_scroll_view
 description: A Flutter package for creating reorderable staggered grid views.
-version: 0.0.1
+version: 0.0.1+1
 repository: https://github.com/itisnajim/reorderable_staggered_scroll_view
 
 environment:
