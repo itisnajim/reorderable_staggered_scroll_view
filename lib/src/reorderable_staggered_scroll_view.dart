@@ -270,36 +270,88 @@ class ReorderableStaggeredScrollView extends StatefulWidget {
     List<ReorderableStaggeredScrollViewGridItem>? this.isNotDragList,
   })  : isList = false,
         shrinkWrap = false,
-        buildFeedback = buildFeedback as Widget Function(
-            ReorderableStaggeredScrollViewListItem, Widget, Size)?,
-        onAccept = onAccept as void Function(
-            ReorderableStaggeredScrollViewListItem?,
-            ReorderableStaggeredScrollViewListItem,
-            bool)?,
-        onLeave = onLeave as void Function(
-            ReorderableStaggeredScrollViewListItem?,
-            ReorderableStaggeredScrollViewListItem,
-            bool)?,
-        onWillAccept = onWillAccept as bool Function(
-            ReorderableStaggeredScrollViewListItem?,
-            ReorderableStaggeredScrollViewListItem,
-            bool)?,
-        onMove = onMove as void Function(ReorderableStaggeredScrollViewListItem,
-            DragTargetDetails<ReorderableStaggeredScrollViewListItem>, bool)?,
-        onDragStarted = onDragStarted as void Function(
-            ReorderableStaggeredScrollViewListItem)?,
-        onDragUpdate = onDragUpdate as void Function(
-            DragUpdateDetails, ReorderableStaggeredScrollViewListItem)?,
-        onDraggableCanceled = onDraggableCanceled as void Function(
-            Velocity, Offset, ReorderableStaggeredScrollViewListItem)?,
+        buildFeedback = (buildFeedback == null
+            ? null
+            : (ReorderableStaggeredScrollViewListItem item, Widget widget,
+                    Size size) =>
+                buildFeedback(
+                  item as ReorderableStaggeredScrollViewGridItem,
+                  widget,
+                  size,
+                )),
+        onAccept = (onAccept == null
+            ? null
+            : (ReorderableStaggeredScrollViewListItem? item1,
+                    ReorderableStaggeredScrollViewListItem? item2,
+                    bool value) =>
+                onAccept(
+                  item1 as ReorderableStaggeredScrollViewGridItem?,
+                  item2 as ReorderableStaggeredScrollViewGridItem,
+                  value,
+                )),
+        onLeave = (onLeave == null
+            ? null
+            : (ReorderableStaggeredScrollViewListItem? item1,
+                    ReorderableStaggeredScrollViewListItem? item2,
+                    bool value) =>
+                onLeave(
+                  item1 as ReorderableStaggeredScrollViewGridItem?,
+                  item2 as ReorderableStaggeredScrollViewGridItem,
+                  value,
+                )),
+        onWillAccept = (onWillAccept == null
+            ? null
+            : (ReorderableStaggeredScrollViewListItem? item1,
+                    ReorderableStaggeredScrollViewListItem? item2,
+                    bool value) =>
+                onWillAccept(
+                  item1 as ReorderableStaggeredScrollViewGridItem?,
+                  item2 as ReorderableStaggeredScrollViewGridItem,
+                  value,
+                )),
+        onMove = (onMove == null
+            ? null
+            : (ReorderableStaggeredScrollViewListItem item,
+                    DragTargetDetails<ReorderableStaggeredScrollViewListItem>
+                        details,
+                    bool value) =>
+                onMove(
+                  item as ReorderableStaggeredScrollViewGridItem,
+                  details as DragTargetDetails<
+                      ReorderableStaggeredScrollViewGridItem>,
+                  value,
+                )),
+        onDragStarted = (onDragStarted == null
+            ? null
+            : (ReorderableStaggeredScrollViewListItem item) =>
+                onDragStarted(item as ReorderableStaggeredScrollViewGridItem)),
+        onDragUpdate = (onDragUpdate == null
+            ? null
+            : (DragUpdateDetails details,
+                    ReorderableStaggeredScrollViewListItem item) =>
+                onDragUpdate(
+                  details,
+                  item as ReorderableStaggeredScrollViewGridItem,
+                )),
+        onDraggableCanceled = (onDraggableCanceled == null
+            ? null
+            : (Velocity velocity, Offset offset,
+                    ReorderableStaggeredScrollViewListItem item) =>
+                onDraggableCanceled(
+                  velocity,
+                  offset,
+                  item as ReorderableStaggeredScrollViewGridItem,
+                )),
         onDragEnd = (onDragEnd == null
             ? null
             : (DraggableDetails details,
                     ReorderableStaggeredScrollViewListItem item) =>
                 onDragEnd(
                     details, item as ReorderableStaggeredScrollViewGridItem)),
-        onDragCompleted = onDragCompleted as void Function(
-            ReorderableStaggeredScrollViewListItem)?;
+        onDragCompleted = (onDragCompleted == null
+            ? null
+            : (ReorderableStaggeredScrollViewListItem item) => onDragCompleted(
+                item as ReorderableStaggeredScrollViewGridItem));
 
   @override
   State<ReorderableStaggeredScrollView> createState() =>

@@ -1,6 +1,6 @@
 # reorderable_staggered_scroll_view
 
-[![pub package](https://img.shields.io/pub/v/reorderable_staggered_scroll_view.svg)](https://pub.dartlang.org/packages/reorderable_staggered_scroll_view) [![Build](https://github.com/itisnajim/reorderable_staggered_scroll_view/workflows/Main/badge.svg)](https://github.com/itisnajim/reorderable_staggered_scroll_view/actions) [![GitHub license](https://img.shields.io/github/license/itisnajim/reorderable_staggered_scroll_view)](https://github.com/itisnajim/reorderable_staggered_scroll_view/blob/master/LICENSE)  [![GitHub issues](https://img.shields.io/github/issues/itisnajim/reorderable_staggered_scroll_view)](https://github.com/itisnajim/reorderable_staggered_scroll_view/issues)
+[![pub package](https://img.shields.io/pub/v/reorderable_staggered_scroll_view.svg)](https://pub.dartlang.org/packages/reorderable_staggered_scroll_view) [![GitHub license](https://img.shields.io/github/license/itisnajim/reorderable_staggered_scroll_view)](https://github.com/itisnajim/reorderable_staggered_scroll_view/blob/master/LICENSE)  [![GitHub issues](https://img.shields.io/github/issues/itisnajim/reorderable_staggered_scroll_view)](https://github.com/itisnajim/reorderable_staggered_scroll_view/issues)
 
 A Flutter package for creating reorderable and draggable staggered grid and list views. This package provides a smooth and intuitive way to reorder items in both grid and list layouts, making it perfect for creating interactive and user-friendly applications.
 
