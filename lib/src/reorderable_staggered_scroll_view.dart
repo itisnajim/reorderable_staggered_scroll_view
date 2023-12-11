@@ -317,8 +317,11 @@ class ReorderableStaggeredScrollView extends StatefulWidget {
                     bool value) =>
                 onMove(
                   item as ReorderableStaggeredScrollViewGridItem,
-                  details as DragTargetDetails<
-                      ReorderableStaggeredScrollViewGridItem>,
+                  DragTargetDetails<ReorderableStaggeredScrollViewGridItem>(
+                    data:
+                        details.data as ReorderableStaggeredScrollViewGridItem,
+                    offset: details.offset,
+                  ),
                   value,
                 )),
         onDragStarted = (onDragStarted == null

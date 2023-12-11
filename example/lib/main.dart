@@ -151,6 +151,12 @@ class _HomePageState extends State<HomePage> {
               onDragEnd: (details, item) {
                 print('onDragEnd: $details ${item.key}');
               },
+              onMove: (item, item2, value) {
+                print('onMove: item $item item2 $item2 value $value');
+              },
+              onDragUpdate: (details, item) {
+                print('onDragUpdate: details $details item $item');
+              },
               isNotDragList: [nonDraggable],
               children: List.generate(
                 5,
